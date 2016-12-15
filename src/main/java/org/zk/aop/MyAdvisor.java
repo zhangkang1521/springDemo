@@ -6,6 +6,10 @@ package org.zk.aop;
 public class MyAdvisor {
 
     public void beforeAdvice(){
-        System.out.println("beforeAdvice");
+        System.out.println("===beforeAdvice===");
+    }
+
+    public void afterAdvice() {
+        System.out.println("===afterAdvice===");
     }
 }

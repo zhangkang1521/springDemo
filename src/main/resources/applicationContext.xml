@@ -14,7 +14,7 @@
              http://www.springframework.org/schema/tx
              http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
-    <context:component-scan base-package="org.zk"/>
+    <!--<context:component-scan base-package="org.zk"/>-->
 
     <!-- @Aspectj 创建代理 -->
     <!--<aop:aspectj-autoproxy/>-->
@@ -31,18 +31,35 @@
         </property>
     </bean>-->
 
-    <bean id="myAdvisor" class="org.zk.aop.MyAdvisor"></bean>
+    <!-- aop -->
+   <!-- <bean id="myAdvisor" class="org.zk.aop.MyAdvisor"></bean>
 
     <aop:config>
         <aop:aspect ref="myAdvisor">
-            <!-- 切点 -->
+            &lt;!&ndash; 切点 &ndash;&gt;
             <aop:pointcut id="myPointCut" expression="execution(* org.zk.service..*(..))" />
-            <!-- before Advisor -->
+            &lt;!&ndash; before Advisor &ndash;&gt;
             <aop:before method="beforeAdvice" pointcut-ref="myPointCut"/>
+            &lt;!&ndash;<aop:after method="afterAdvice" pointcut-ref="myPointCut"/>&ndash;&gt;
         </aop:aspect>
     </aop:config>
 
+    <bean class="org.zk.service.impl.UserServiceImpl"></bean> -->
 
+    <bean id="myBeforeAdvice" class="org.zk.aop.abc.MyBeforeAdvice"/>
+    <bean id="myAfterReturnAdvice" class="org.zk.aop.abc.MyAfterReturnAdvice"></bean>
+    <bean id="myThrowAdvice" class="org.zk.aop.abc.MyThrowAdvice"></bean>
+    <bean id="testAOP" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces"><value>org.zk.aop.abc.MyInterface</value></property>
+        <property name="target"><bean class="org.zk.aop.abc.MyTarget"></bean></property>
+        <property name="interceptorNames">
+        <list>
+            <value>myBeforeAdvice</value>
+            <value>myAfterReturnAdvice</value>
+            <value>myThrowAdvice</value>
+        </list>
+    </property>
+    </bean>
 
 
     <!-- 整合hibernate3 -->
