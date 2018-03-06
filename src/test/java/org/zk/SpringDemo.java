@@ -1,20 +1,17 @@
-package org.zk.aop.abc;
+package org.zk;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.zk.beans.User;
 
 /**
  * Created by Administrator on 8/27/2016.
  */
-public class ProxyFactoryBeanTest {
+public class SpringDemo {
 
     public static void main(String[] args) throws Exception{
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Object obj = ctx.getBean("testAOP");
-        // 使用jdk动态代理或cglib
-        MyInterface target = (MyInterface)obj;
-//        MyTarget target = (MyTarget)obj;
-        String str = target.sayHello("hee");
-        //System.out.println(str);
+        User user = (User)ctx.getBean("user");
+        System.out.println(user);
     }
 }
