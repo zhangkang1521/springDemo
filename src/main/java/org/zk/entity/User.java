@@ -1,4 +1,4 @@
-package org.zk.beans;
+package org.zk.entity;
 
 /**
  * Created by zhangkang on 2016/4/27.
