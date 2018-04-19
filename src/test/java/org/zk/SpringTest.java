@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.zk.beans.User;
 import org.zk.config.ApplicationConfig;
+import org.zk.service.UserService;
 
 /**
  * Created by Administrator on 8/27/2016.
@@ -24,7 +25,7 @@ public class SpringTest {
     @Test
     public void testAnnotation() {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        User user = ctx.getBean(User.class);
-        System.out.println(user);
+        UserService userService = ctx.getBean(UserService.class);
+        userService.readProperties();
     }
 }
