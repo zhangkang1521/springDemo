@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.zk.beans.User;
 import org.zk.config.ApplicationConfig;
+import org.zk.event.DemoEvent;
 
 /**
  * Created by Administrator on 8/27/2016.
@@ -26,5 +27,12 @@ public class SpringTest {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         User user = ctx.getBean(User.class);
         System.out.println(user);
+    }
+
+    @Test
+    public void testEvent() {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        User user = ctx.getBean(User.class);
+        ctx.publishEvent(new DemoEvent(user, "hello"));
     }
 }
