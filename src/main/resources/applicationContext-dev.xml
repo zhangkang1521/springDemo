@@ -2,11 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd">
+            http://www.springframework.org/schema/beans/spring-beans.xsd" profile="dev">
 
-    <bean id="user" class="org.zk.beans.User"></bean>
+    <bean id="user" class="org.zk.beans.User">
+        <property name="username" value="dev-zk"></property>
+    </bean>
 
 </beans>
+
 
 
 
