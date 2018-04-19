@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>3.0.0.RELEASE</spring.version>
+        <spring.version>4.3.2.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -51,6 +51,7 @@
             <artifactId>spring-expression</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        
         <!-- spring framework end -->
 
         <dependency>
