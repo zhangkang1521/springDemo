@@ -1,11 +1,11 @@
 package org.zk;
 
-import config.ApplicationConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.zk.beans.User;
+import org.zk.config.ApplicationConfig;
 
 /**
  * Created by Administrator on 8/27/2016.
