@@ -1,6 +1,7 @@
 package org.zk.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     @RequestMapping("/hello")
-    public String hello() {
+    public String hello(Model modal) {
+        modal.addAttribute("username", "zk");
         return "hello";
     }
 }
