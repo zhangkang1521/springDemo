@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>index</title>
 </head>
 <body>
-hello,springMVC, I am ${username}, ${msg}
+index
 </body>
 </html>
