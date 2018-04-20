@@ -1,6 +1,7 @@
 package org.zk.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.zk.beans.User;
 
@@ -11,10 +12,20 @@ import org.zk.beans.User;
 public class ApplicationConfig {
 
     @Bean
-    public User getUser() {
+    @Conditional(WindowsCondition.class)
+    public User windowsUser() {
         User user = new User();
         user.setId(100);
-        user.setUsername("zk");
+        user.setUsername("windows-zk");
+        return user;
+    }
+
+    @Bean
+    @Conditional(LinuxCondition.class)
+    public User linuxUser() {
+        User user = new User();
+        user.setId(100);
+        user.setUsername("linux-zk");
         return user;
     }
 }

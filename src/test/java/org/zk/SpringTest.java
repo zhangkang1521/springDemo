@@ -25,6 +25,6 @@ public class SpringTest {
     public void testAnnotation() {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         User user = ctx.getBean(User.class);
-        System.out.println(user);
+        System.out.println(user.getUsername());
     }
 }
