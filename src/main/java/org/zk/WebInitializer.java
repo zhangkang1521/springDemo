@@ -27,6 +27,8 @@ public class WebInitializer implements WebApplicationInitializer {
         String location = null;
         MultipartConfigElement multipartConfigElement = new MultipartConfigElement(location);
         servlet.setMultipartConfig(multipartConfigElement);
+        // 开启servlet3.0 异步支持
+        servlet.setAsyncSupported(true);
         servlet.setLoadOnStartup(1);
     }
 }

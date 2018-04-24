@@ -52,6 +52,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter{
         // 将 /* 映射到 /* 如何写？
         registry.addViewController("/index").setViewName("/index");
         registry.addViewController("/toUpload").setViewName("/upload");
+        registry.addViewController("/toDefer").setViewName("/defer");
     }
 
     // 文件上传配置这样不行，改用在servlet中配置MultipartConfigElement
