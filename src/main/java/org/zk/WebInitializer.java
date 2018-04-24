@@ -5,6 +5,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 import org.zk.config.MvcConfig;
 
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -22,6 +23,10 @@ public class WebInitializer implements WebApplicationInitializer {
         ctx.setServletContext(servletContext);
         ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.addMapping("/");
+        // 文件上传配置
+        String location = null;
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement(location);
+        servlet.setMultipartConfig(multipartConfigElement);
         servlet.setLoadOnStartup(1);
     }
 }

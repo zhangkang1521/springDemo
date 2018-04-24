@@ -3,7 +3,10 @@ package org.zk.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.zk.entity.User;
+
+import java.io.File;
 
 /**
  * Created by zhangkang on 2018/3/6.
@@ -61,5 +64,13 @@ public class UserController {
         user2.setId(100);
         user2.setUsername("zk");
         return user2;
+    }
+
+    @RequestMapping("upload")
+    @ResponseBody
+    public String upload(MultipartFile myFile) throws Exception{
+        myFile.transferTo(new File("G:/test.txt"));
+        System.out.println(myFile.getOriginalFilename());
+        return "ok";
     }
 }
