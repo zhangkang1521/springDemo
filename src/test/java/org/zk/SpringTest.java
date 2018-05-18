@@ -2,8 +2,10 @@ package org.zk;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.zk.beans.Child;
 import org.zk.beans.User;
 import org.zk.config.ApplicationConfig;
 
@@ -15,16 +17,18 @@ public class SpringTest {
     // xml配置
     @Test
     public void testXml() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        User user = (User)ctx.getBean("user");
+        ApplicationContext parentCtx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ConfigurableApplicationContext childCtx = new ClassPathXmlApplicationContext("child.xml");
+        childCtx.setParent(parentCtx);
+        childCtx.refresh();
+        Child child = childCtx.getBean("child", Child.class);
+        System.out.println(child);
+        User user = childCtx.getBean("user", User.class);
         System.out.println(user);
+
+//        parentCtx.getBean("child", Child.class);
+        User user2 = parentCtx.getBean("user", User.class); //
+        System.out.println(user2);
     }
 
-    // Java注解配置
-    @Test
-    public void testAnnotation() {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-        User user = ctx.getBean(User.class);
-        System.out.println(user);
-    }
 }
