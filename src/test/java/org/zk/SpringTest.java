@@ -38,5 +38,11 @@ public class SpringTest {
         System.out.println(textMessage.getText());
     }
 
+    @Test
+    public void testStartUp() throws Exception {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        System.in.read();
+    }
+
 
 }

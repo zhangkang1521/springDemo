@@ -16,6 +16,16 @@
         <constructor-arg index="0" value="HelloWorldQueue"></constructor-arg>
     </bean>
 
+    <bean id="myMessageListener" class="org.zk.jms.MyMessageListener">
+    </bean>
+
+    <bean id="defaultMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="connectionFactory"></property>
+        <property name="destination" ref="destination"></property>
+        <property name="messageListener" ref="myMessageListener"></property>
+        <property name="concurrentConsumers" value="5"></property>
+    </bean>
+
 </beans>
 
 
