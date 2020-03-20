@@ -13,20 +13,20 @@ import org.zk.service.PushService;
 @Controller
 public class AsyncController {
 
-    @Autowired
-    PushService pushService;
+//    @Autowired
+//    PushService pushService;
 
 
-    @RequestMapping("/defer")
-    @ResponseBody
-    public DeferredResult<String> defer() {
-        return pushService.getDeferredResult();
-    }
-
-    @RequestMapping("update")
-    @ResponseBody
-    public String update() {
-        pushService.update();
-        return "ok";
-    }
+//    @RequestMapping("/defer")
+//    @ResponseBody
+//    public DeferredResult<String> defer() {
+//        return pushService.getDeferredResult();
+//    }
+//
+//    @RequestMapping("update")
+//    @ResponseBody
+//    public String update() {
+//        pushService.update();
+//        return "ok";
+//    }
 }
