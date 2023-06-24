@@ -44,5 +44,11 @@ public class SpringTest {
         System.in.read();
     }
 
+    @Test
+    public void testAnnotation() throws Exception {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        System.in.read();
+    }
+
 
 }
